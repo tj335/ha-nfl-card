@@ -26,8 +26,8 @@ class NFLCard extends LitElement {
     const outlineColor = this._config.outline_color;
     const awayTeamProb = (stateObj.attributes.away_team_win_probability * 100).toFixed(0);
     const homeTeamProb = (stateObj.attributes.home_team_win_probability * 100).toFixed(0);
-    var tScr = stateObj.attributes.team_score;
-    var oScr = stateObj.attributes.opponent_score;
+    var aScr = stateObj.attributes.away_team_score;
+    var hScr = stateObj.attributes.home_team_score;
 
     var dateForm = new Date (stateObj.attributes.date);
     var gameDay = dateForm.toLocaleDateString('en-US', { weekday: 'long' });
@@ -49,23 +49,23 @@ class NFLCard extends LitElement {
     if (!this._config.outline_color) {
       var outColor = '#ffffff';
     }
-    if (stateObj.attributes.possession == stateObj.attributes.team_id) {
-      var teamPoss = 1;
+    if (stateObj.attributes.possession == stateObj.attributes.away_team_id) {
+      var awayTeamPoss = 1;
     }
-    if (stateObj.attributes.possession == stateObj.attributes.opponent_id) {
-      var oppoPoss = 1;
+    if (stateObj.attributes.possession == stateObj.attributes.home_team_id) {
+      var homeTeamPoss = 1;
     }
-    if (Boolean(stateObj.state == 'POST') && Number(tScr) > Number(oScr)) {
-        var oppoScore = 0.6;
-        var teamScore = 1;
+    if (Boolean(stateObj.state == 'POST') && Number(aScr) > Number(hScr)) {
+        var homeTeamScore = 0.6;
+        var awayTeamScore = 1;
     }
-    if (Boolean(stateObj.state == 'POST') && Number(tScr) < Number(oScr)) {
-        var oppoScore = 1;
-        var teamScore = 0.6;
+    if (Boolean(stateObj.state == 'POST') && Number(aScr) < Number(hScr)) {
+        var homeTeamScore = 1;
+        var awayTeamScore = 0.6;
     }
-    if (Boolean(stateObj.state == 'POST') && Number(tScr) == Number(oScr)) {
-        var oppoScore = 1;
-        var teamScore = 1;
+    if (Boolean(stateObj.state == 'POST') && Number(aScr) == Number(hScr)) {
+        var homeTeamScore = 1;
+        var awayTeamScore = 1;
     }
 
 
