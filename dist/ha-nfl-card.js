@@ -68,15 +68,18 @@ class NFLCard extends LitElement {
         var awayTeamScore = 1;
     }
 
-
-    if (stateObj.attributes.team_homeaway == 'home') {
-      var teamColor = stateObj.attributes.team_colors[0];
-      var oppoColor = stateObj.attributes.opponent_colors[1];
+    /*
+    if (stateObj.attributes.my_team_abbr == stateObj.attributes.home_team_abbr) {
+      var teamColor = stateObj.attributes.home_team_colors[0];
+      var oppoColor = stateObj.attributes.away_team_colors[1];
     }
     if (stateObj.attributes.team_homeaway == 'away') {
       var teamColor = stateObj.attributes.team_colors[1];
       var oppoColor = stateObj.attributes.opponent_colors[0];
     }
+    */
+    var homeTeamColor = stateObj.attributes.home_team_colors[0];
+    var awayTeamColor = stateObj.attributes.away_team_colors[1];
 
     if (!stateObj) {
       return html` <ha-card>Unknown entity: ${this._config.entity}</ha-card> `;
