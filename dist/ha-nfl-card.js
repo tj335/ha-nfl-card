@@ -24,8 +24,8 @@ class NFLCard extends LitElement {
     const stateObj = this.hass.states[this._config.entity];
     const outline = this._config.outline;
     const outlineColor = this._config.outline_color;
-    const teamProb = (stateObj.attributes.team_win_probability * 100).toFixed(0);
-    const oppoProb = (stateObj.attributes.opponent_win_probability * 100).toFixed(0);
+    const awayTeamProb = (stateObj.attributes.away_team_win_probability * 100).toFixed(0);
+    const homeTeamProb = (stateObj.attributes.home_team_win_probability * 100).toFixed(0);
     var tScr = stateObj.attributes.team_score;
     var oScr = stateObj.attributes.opponent_score;
 
