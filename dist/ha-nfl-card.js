@@ -155,8 +155,8 @@ class NFLCard extends LitElement {
             .name { font-size: 1.4em; margin-bottom: 4px; }
             .line { height: 1px; background-color: var(--primary-text-color); margin:10px 0; }
             .timeouts { margin: 0 auto; width: 70%; }
-            .timeouts div.opponent-to:nth-child(-n + ${stateObj.attributes.opponent_timeouts})  { opacity: 1; }
-            .timeouts div.team-to:nth-child(-n + ${stateObj.attributes.team_timeouts})  { opacity: 1; }
+            .timeouts div.home-team-to:nth-child(-n + ${stateObj.attributes.home_team_timeouts})  { opacity: 1; }
+            .timeouts div.away-team-to:nth-child(-n + ${stateObj.attributes.away_team_timeouts})  { opacity: 1; }
             .away-team-to { height: 6px; border-radius: ${toRadius}px; border: ${clrOut}px solid ${outColor}; width: 20%; background-color: ${awayTeamColor}; display: inline-block; margin: 0 auto; position: relative; opacity: 0.2; }
             .home-team-to { height: 6px; border-radius: ${toRadius}px; border: ${clrOut}px solid ${outColor}; width: 20%; background-color: ${homeTeamColor}; display: inline-block; margin: 0 auto; position: relative; opacity: 0.2; }
             .status { text-align:center; font-size:1.6em; font-weight: 700; }
