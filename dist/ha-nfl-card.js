@@ -111,6 +111,7 @@ class NFLCard extends LitElement {
           .name { font-size: 1.4em; margin-bottom: 4px; }
           .line { height: 1px; background-color: var(--primary-text-color); margin:10px 0; }
           .status { font-size: 1.2em; text-align: center; margin-top: -21px; }
+          .week-number { font-size: 1.1em; }
         </style>
         <ha-card>
           <div class="card">
@@ -132,6 +133,7 @@ class NFLCard extends LitElement {
               </div>
             </div>
             <div class="status">${gameMonth} ${gameDate} - FINAL</div>
+            <div class="week-number">Week ${stateObj.attributes.week_number}</div>
           </div>
         </ha-card>
       `;
@@ -250,6 +252,7 @@ class NFLCard extends LitElement {
             .line { height: 1px; background-color: var(--primary-text-color); margin:10px 0; }
             .gameday { font-size: 1.4em; margin-bottom: 4px; }
             .gametime { font-size: 1.1em; }
+            .week-number { font-size: 1.1em; }
             .sub1 { font-weight: 500; font-size: 1.2em; margin: 6px 0 2px; }
             .sub1, .sub2, .sub3 { display: flex; justify-content: space-between; align-items: center; margin: 2px 0; }
             .last-play { font-size: 1.2em; width: 100%; white-space: nowrap; overflow: hidden; box-sizing: border-box; }
@@ -272,6 +275,7 @@ class NFLCard extends LitElement {
                 <div class="gamewrapper">
                   <div class="gameday">${gameDay}</div>
                   <div class="gametime">${gameTime}</div>
+                  <div class="week-number">Week ${stateObj.attributes.week_number}</div>
                 </div>
                 <div class="team">
                   <img src="${stateObj.attributes.home_team_logo}" />
