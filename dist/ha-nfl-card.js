@@ -21,13 +21,34 @@ class NFLCard extends LitElement {
       return html``;
     }
 
+    var awayTeamProb;
+    var aScr;
+    var homeTeamProb;
+    var hScr;
+
     const stateObj = this.hass.states[this._config.entity];
     const outline = this._config.outline;
     const outlineColor = this._config.outline_color;
-    const awayTeamProb = (stateObj.attributes.away_team_win_probability * 100).toFixed(0);
-    const homeTeamProb = (stateObj.attributes.home_team_win_probability * 100).toFixed(0);
-    var aScr = stateObj.attributes.away_team_score;
-    var hScr = stateObj.attributes.home_team_score;
+
+    if (stateObj.attributes.away_team_win_probability) {
+      awayTeamProb = (stateObj.attributes.away_team_win_probability) * 100).toFixed(0);
+    } else {
+      awayTeamProb = 50;
+    }
+
+    if (stateObj.attributes.home_team_win_probability) {
+      homeTeamProb = (stateObj.attributes.home_team_win_probability) * 100).toFixed(0);
+    } else {
+      homeTeamProb = 50;
+    }
+
+    if (stateObj.attributes.away_team_score) {
+      aScr = stateObj.attributes.away_team_score;
+    }
+
+    if (stateObj.attributes.home_team_score) {
+      hScr = stateObj.attributes.home_team_score;
+    }
 
     var dateForm = new Date (stateObj.attributes.date);
     var gameDay = dateForm.toLocaleDateString('en-US', { weekday: 'long' });
@@ -68,18 +89,13 @@ class NFLCard extends LitElement {
         var awayTeamScore = 1;
     }
 
-    /*
-    if (stateObj.attributes.my_team_abbr == stateObj.attributes.home_team_abbr) {
-      var teamColor = stateObj.attributes.home_team_colors[0];
-      var oppoColor = stateObj.attributes.away_team_colors[1];
+    if (stateObj.attributes.home_team_colors) {
+      var homeTeamColor = stateObj.attributes.home_team_colors[0];
     }
-    if (stateObj.attributes.team_homeaway == 'away') {
-      var teamColor = stateObj.attributes.team_colors[1];
-      var oppoColor = stateObj.attributes.opponent_colors[0];
+
+    if (stateObj.attributes.away_team_colors) {
+      var awayTeamColor = stateObj.attributes.away_team_colors[1];
     }
-    */
-    var homeTeamColor = stateObj.attributes.home_team_colors[0];
-    var awayTeamColor = stateObj.attributes.away_team_colors[1];
 
     if (!stateObj) {
       return html` <ha-card>Unknown entity: ${this._config.entity}</ha-card> `;
