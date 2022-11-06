@@ -315,11 +315,11 @@ class NFLCard extends LitElement {
         </style>
         <ha-card>
           <div class="card">
-            <img class="team-bg" src="${stateObj.attributes.team_logo}" />
+            <img class="team-bg" src="${stateObj.attributes.home_team_logo}" />
             <div class="card-content">
               <div class="team">
-                <img src="${stateObj.attributes.team_logo}" />
-                <div class="name">${stateObj.attributes.team_name}</div>
+                <img src="${stateObj.attributes.home_team_logo}" />
+                <div class="name">${stateObj.attributes.home_team_name}</div>
               </div>
               <div class="bye">BYE</div>
             </div>
