@@ -31,13 +31,13 @@ class NFLCard extends LitElement {
     const outlineColor = this._config.outline_color;
 
     if (stateObj.attributes.away_team_win_probability) {
-      awayTeamProb = (stateObj.attributes.away_team_win_probability) * 100).toFixed(0);
+      awayTeamProb = (stateObj.attributes.away_team_win_probability * 100).toFixed(0);
     } else {
       awayTeamProb = 50;
     }
 
     if (stateObj.attributes.home_team_win_probability) {
-      homeTeamProb = (stateObj.attributes.home_team_win_probability) * 100).toFixed(0);
+      homeTeamProb = (stateObj.attributes.home_team_win_probability * 100).toFixed(0);
     } else {
       homeTeamProb = 50;
     }
@@ -50,11 +50,13 @@ class NFLCard extends LitElement {
       hScr = stateObj.attributes.home_team_score;
     }
 
-    var dateForm = new Date (stateObj.attributes.date);
-    var gameDay = dateForm.toLocaleDateString('en-US', { weekday: 'long' });
-    var gameTime = dateForm.toLocaleTimeString('en-US', { hour: '2-digit', minute:'2-digit' });
-    var gameMonth = dateForm.toLocaleDateString('en-US', { month: 'short' });
-    var gameDate = dateForm.toLocaleDateString('en-US', { day: '2-digit' });
+    if (stateObj.attributes.date) {
+      var dateForm = new Date (stateObj.attributes.date);
+      var gameDay = dateForm.toLocaleDateString('en-US', { weekday: 'long' });
+      var gameTime = dateForm.toLocaleTimeString('en-US', { hour: '2-digit', minute:'2-digit' });
+      var gameMonth = dateForm.toLocaleDateString('en-US', { month: 'short' });
+      var gameDate = dateForm.toLocaleDateString('en-US', { day: '2-digit' });
+    }
     var outColor = outlineColor;
     
     if (outline == true) {
