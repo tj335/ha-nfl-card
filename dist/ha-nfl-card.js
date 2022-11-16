@@ -129,7 +129,7 @@ class NFLCard extends LitElement {
           .name { font-size: 1.4em; margin-bottom: 4px; }
           .line { height: 1px; background-color: var(--primary-text-color); margin:10px 0; }
           .status { font-size: 1.2em; text-align: center; margin-top: -21px; }
-          .week-number { font-size: 1.1em; }
+          .week-number { font-size: 1.1em; text-align: center; }
         </style>
         <ha-card>
           <div class="card">
