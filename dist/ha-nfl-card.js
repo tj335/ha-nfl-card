@@ -130,6 +130,8 @@ class NFLCard extends LitElement {
           .line { height: 1px; background-color: var(--primary-text-color); margin:10px 0; }
           .status { font-size: 1.2em; text-align: center; margin-top: -21px; }
           .week-number { font-size: 1.1em; text-align: center; }
+          .sub1 { font-weight: 500; font-size: 1.2em; margin: 6px 0 2px; }
+          .sub1, .sub2, .sub3 { display: flex; justify-content: space-between; align-items: center; margin: 2px 0; }
         </style>
         <ha-card>
           <div class="card">
@@ -152,6 +154,17 @@ class NFLCard extends LitElement {
             </div>
             <div class="status">${gameMonth} ${gameDate} - FINAL</div>
             <div class="week-number">Week ${stateObj.attributes.week_number}</div>
+
+            <div class="line"></div>
+            <div class="sub2">
+              <div class="venue">${stateObj.attributes.venue_name}</div>
+              <div class="overunder">${stateObj.attributes.venue_capacity}</div>
+            </div>
+            <div class="sub3">
+              <div class="location">${stateObj.attributes.venue_city}, ${stateObj.attributes.venue_state}</div>
+              <div class="network">${stateObj.attributes.attendance}</div>
+            </div>
+
           </div>
         </ha-card>
       `;
