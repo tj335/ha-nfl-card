@@ -158,12 +158,14 @@ class NFLCard extends LitElement {
             <div class="line"></div>
             <div class="sub2">
               <div class="venue">${stateObj.attributes.venue_name}</div>
-              <div class="overunder">${stateObj.attributes.venue_capacity}</div>
+              <div class="capacity">Capacity: ${stateObj.attributes.venue_capacity}</div>
             </div>
             <div class="sub3">
               <div class="location">${stateObj.attributes.venue_city}, ${stateObj.attributes.venue_state}</div>
-              <div class="network">${stateObj.attributes.attendance}</div>
+              <div class="attendance">${stateObj.attributes.attendance}</div>
             </div>
+            <div class="line"></div>
+            <div class="headlines">${stateObj.attributes.headlines}</div>
 
           </div>
         </ha-card>
