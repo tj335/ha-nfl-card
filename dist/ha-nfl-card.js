@@ -25,6 +25,7 @@ class NFLCard extends LitElement {
     var aScr;
     var homeTeamProb;
     var hScr;
+    var weather;
 
     const stateObj = this.hass.states[this._config.entity];
     const outline = this._config.outline;
@@ -58,6 +59,20 @@ class NFLCard extends LitElement {
       var gameDate = dateForm.toLocaleDateString('en-US', { day: '2-digit' });
     }
     var outColor = outlineColor;
+
+    if (stateObj.attributes.venue_indoor) {
+      if (stateObj.attributes.venue_indoor == true) {
+        weather = 'Indoors';
+      } else {
+        if (stateObj.attributes.weather_conditions && stateObj.attributes.weather_temp) {
+          weather = stateObj.attributes.weather_conditions + ', ' + stateObj.attributes.weather_temp;
+        } else {
+          weather = 'Weather Unavailable';
+        }
+      }
+    } else {
+      weather = 'Weather Unavailable';
+    }
     
     if (outline == true) {
       var clrOut = 1;
@@ -287,7 +302,7 @@ class NFLCard extends LitElement {
             .gametime { font-size: 1.1em; }
             .week-number { font-size: 1.1em; }
             .sub1 { font-weight: 500; font-size: 1.2em; margin: 6px 0 2px; }
-            .sub1, .sub2, .sub3 { display: flex; justify-content: space-between; align-items: center; margin: 2px 0; }
+            .sub1, .sub2, .sub3, .sub4 { display: flex; justify-content: space-between; align-items: center; margin: 2px 0; }
             .last-play { font-size: 1.2em; width: 100%; white-space: nowrap; overflow: hidden; box-sizing: border-box; }
             .last-play p { display: inline-block; padding-left: 100%; margin: 2px 0 12px; animation : slide 10s linear infinite; }
             @keyframes slide { 0%   { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
@@ -328,6 +343,10 @@ class NFLCard extends LitElement {
               <div class="sub3">
                 <div class="location">${stateObj.attributes.venue_city}, ${stateObj.attributes.venue_state}</div>
                 <div class="network">${stateObj.attributes.tv_network}</div>
+              </div>
+              <div class="sub4">
+                <div class="capacity">Capacity: ${stateObj.attributes.venue_capacity}</div>
+                <div class="weather">${weather}</div>
               </div>
             </div>
             </ha-card>
