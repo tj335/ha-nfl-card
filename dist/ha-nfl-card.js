@@ -61,11 +61,11 @@ class NFLCard extends LitElement {
     var outColor = outlineColor;
 
     if (stateObj.attributes.venue_indoor) {
-      if (stateObj.attributes.venue_indoor == true) {
+      if (stateObj.attributes.venue_indoor == 'true') {
         weather = 'Indoors';
       } else {
         if (stateObj.attributes.weather_conditions && stateObj.attributes.weather_temp) {
-          weather = stateObj.attributes.weather_conditions + ', ' + stateObj.attributes.weather_temp;
+          weather = stateObj.attributes.weather_conditions + ', ' + stateObj.attributes.weather_temp + '°F';
         } else {
           weather = 'Weather Unavailable';
         }
