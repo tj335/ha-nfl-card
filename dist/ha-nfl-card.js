@@ -145,6 +145,11 @@ class NFLCard extends LitElement {
           .week-number { font-size: 1.1em; text-align: center; }
           .sub1 { font-weight: 500; font-size: 1.2em; margin: 6px 0 2px; }
           .sub1, .sub2, .sub3 { display: flex; justify-content: space-between; align-items: center; margin: 2px 0; }
+          .line-score-table { width: 100%; border-collapse: collapse; text-align: center; }
+          .line-score-cell { border: 0.5px solid #999; text-align: center; }
+          table.ls { width: 100%; text-align: center; border: 0.5px solid #999; border-collapse: collapse; }
+          th, td { border: 0.5px solid #999; text-align: center; }
+          th.teamls, td.teamls { border: 0.5px solid #999; text-align: left; }
         </style>
         <ha-card>
           <div class="card">
@@ -177,6 +182,40 @@ class NFLCard extends LitElement {
               <div class="location">${stateObj.attributes.venue_city}, ${stateObj.attributes.venue_state}</div>
               <div class="attendance">${stateObj.attributes.attendance}</div>
             </div>
+            <div class="line"></div>
+            <div class="probability-text">
+              <table class="ls">
+                <thead>
+                  <tr>
+                    <th class="teamls">Scoring</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>T</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="teamls"><img src="${awayTeamLogo}" style="height:15px;" />&nbsp; ${stateObj.attributes.away_team_abbr}</td>
+                    <td>${stateObj.attributes.away_team_ls_1}</td>
+                    <td>${stateObj.attributes.away_team_ls_2}</td>
+                    <td>${stateObj.attributes.away_team_ls_3}</td>
+                    <td>${stateObj.attributes.away_team_ls_4}</td>
+                    <td>${stateObj.attributes.away_team_score}</td>
+                  </tr>
+                  <tr>
+                    <td class="teamls"><img src="${homeTeamLogo}" style="height:15px;"/>&nbsp; ${stateObj.attributes.home_team_abbr}</td>
+                    <td>${stateObj.attributes.home_team_ls_1}</td>
+                    <td>${stateObj.attributes.home_team_ls_2}</td>
+                    <td>${stateObj.attributes.home_team_ls_3}</td>
+                    <td>${stateObj.attributes.home_team_ls_4}</td>
+                    <td>${stateObj.attributes.home_team_score}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
             <div class="line"></div>
             <div class="headlines">${stateObj.attributes.headlines}</div>
 
