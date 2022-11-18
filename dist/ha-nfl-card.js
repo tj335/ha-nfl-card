@@ -225,6 +225,11 @@ class NFLCard extends LitElement {
             .home-team-percent { flex: 0 0 10px; padding: 0 0 0 10px; text-align: right; }
             .percent { padding: 0 6px; }
             .post-game { margin: 0 auto; }
+            .line-score-table { width: 100%; border-collapse: collapse; text-align: center; }
+            .line-score-cell { border: 0.5px solid #999; text-align: center; }
+            table.ls { width: 100%; text-align: center; border: 0.5px solid #999; border-collapse: collapse; }
+            th, td { border: 0.5px solid #999; text-align: center; }
+            th.teamls, td.teamls { border: 0.5px solid #999; text-align: left; }
           </style>
           <ha-card>
             <div class="card">
@@ -280,6 +285,40 @@ class NFLCard extends LitElement {
               </div>
               <div class="home-team-percent">${homeTeamProb}%</div>
             </div>
+
+            <div class="probability-text">
+              <table class="ls">
+                <thead>
+                  <tr>
+                    <th class="teamls">Scoring</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>T</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="teamls"><img src="${awayTeamLogo}" style="height:15px;" />&nbsp; ${stateObj.attributes.away_team_abbr}</td>
+                    <td>${stateObj.attributes.away_team_ls_1}</td>
+                    <td>${stateObj.attributes.away_team_ls_2}</td>
+                    <td>${stateObj.attributes.away_team_ls_3}</td>
+                    <td>${stateObj.attributes.away_team_ls_4}</td>
+                    <td>${stateObj.attributes.away_team_score}</td>
+                  </tr>
+                  <tr>
+                    <td class="teamls"><img src="${homeTeamLogo}" style="height:15px;"/>&nbsp; ${stateObj.attributes.home_team_abbr}</td>
+                    <td>${stateObj.attributes.home_team_ls_1}</td>
+                    <td>${stateObj.attributes.home_team_ls_2}</td>
+                    <td>${stateObj.attributes.home_team_ls_3}</td>
+                    <td>${stateObj.attributes.home_team_ls_4}</td>
+                    <td>${stateObj.attributes.home_team_score}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
           </div>
           </ha-card>
         `;
