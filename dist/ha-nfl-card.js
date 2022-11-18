@@ -21,15 +21,25 @@ class NFLCard extends LitElement {
       return html``;
     }
 
+    var awayTeamLogo;
     var awayTeamProb;
-    var aScr;
+    var awayTeamScore;
+    //var aScr;
+    var awayTeamScoreOpacity;
+    var homeTeamLogo;
     var homeTeamProb;
-    var hScr;
+    var homeTeamScore;
+    //var hScr;
+    var homeTeamScoreOpacity;
     var weather;
 
     const stateObj = this.hass.states[this._config.entity];
     const outline = this._config.outline;
     const outlineColor = this._config.outline_color;
+
+    homeTeamLogo = stateObj.attributes.home_team_logo;
+    awayTeamLogo = stateObj.attributes.away_team_logo;
+
 
     if (stateObj.attributes.away_team_win_probability) {
       awayTeamProb = (stateObj.attributes.away_team_win_probability * 100).toFixed(0);
@@ -44,11 +54,11 @@ class NFLCard extends LitElement {
     }
 
     if (stateObj.attributes.away_team_score) {
-      aScr = stateObj.attributes.away_team_score;
+      awayTeamScore = stateObj.attributes.away_team_score;
     }
 
     if (stateObj.attributes.home_team_score) {
-      hScr = stateObj.attributes.home_team_score;
+      homeTeamScore = stateObj.attributes.home_team_score;
     }
 
     if (stateObj.attributes.date) {
@@ -91,17 +101,17 @@ class NFLCard extends LitElement {
     if (stateObj.attributes.possession == stateObj.attributes.home_team_id) {
       var homeTeamPoss = 1;
     }
-    if (Boolean(stateObj.state == 'POST') && Number(aScr) > Number(hScr)) {
-        var homeTeamScore = 0.6;
-        var awayTeamScore = 1;
+    if (Boolean(stateObj.state == 'POST') && Number(awayTeamScore) > Number(homeTeamScore)) {
+        homeTeamScoreOpacity = 0.6;
+        awayTeamScoreOpacity = 1;
     }
-    if (Boolean(stateObj.state == 'POST') && Number(aScr) < Number(hScr)) {
-        var homeTeamScore = 1;
-        var awayTeamScore = 0.6;
+    if (Boolean(stateObj.state == 'POST') && Number(awayTeamScore) < Number(homeTeamScore)) {
+        homeTeamScoreOpacity = 1;
+        awayTeamScoreOpacity = 0.6;
     }
-    if (Boolean(stateObj.state == 'POST') && Number(aScr) == Number(hScr)) {
-        var homeTeamScore = 1;
-        var awayTeamScore = 1;
+    if (Boolean(stateObj.state == 'POST') && Number(awayTeamScore) == Number(homeTeamScore)) {
+        homeTeamScoreOpacity = 1;
+        awayTeamScoreOpacity = 1;
     }
 
     if (stateObj.attributes.home_team_colors) {
@@ -136,8 +146,8 @@ class NFLCard extends LitElement {
           .team { text-align: center; width: 35%;}
           .team img { max-width: 90px; }
           .score { font-size: 3em; text-align: center; }
-          .awayteamscr { opacity: ${awayTeamScore}; }
-          .hometeamscr { opacity: ${homeTeamScore}; }
+          .awayteamscr { opacity: ${awayTeamScoreOpacity}; }
+          .hometeamscr { opacity: ${homeTeamScoreOpacity}; }
           .divider { font-size: 2.5em; text-align: center; opacity: 0; }
           .name { font-size: 1.4em; margin-bottom: 4px; }
           .line { height: 1px; background-color: var(--primary-text-color); margin:10px 0; }
@@ -161,9 +171,9 @@ class NFLCard extends LitElement {
                 <div class="name">${stateObj.attributes.away_team_name}</div>
                 <div class="record">${stateObj.attributes.away_team_record}</div>
               </div>
-              <div class="score awayteamscr">${aScr}</div>
+              <div class="score awayteamscr">${awayTeamScore}</div>
               <div class="divider">-</div>
-              <div class="score hometeamscr">${hScr}</div>
+              <div class="score hometeamscr">${homeTeamScore}</div>
               <div class="team">
                 <img src="${stateObj.attributes.home_team_logo}" />
                 <div class="name">${stateObj.attributes.home_team_name}</div>
