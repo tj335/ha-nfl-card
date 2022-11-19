@@ -160,7 +160,7 @@ class NFLCard extends LitElement {
           table.ls { width: 100%; text-align: center; border: 0.5px solid #999; border-collapse: collapse; }
           th, td { border: 0.5px solid #999; text-align: center; }
           th.teamls, td.teamls { border: 0.5px solid #999; text-align: left; }
-          .leader-heading { font-size: 1.2em; text-align: center; margin-top: -21px; }
+          .leader-heading { font-size: 1.2em; text-align: center; }
         </style>
         <ha-card>
           <div class="card">
