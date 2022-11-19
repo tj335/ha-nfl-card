@@ -169,7 +169,7 @@ class NFLCard extends LitElement {
             <div class="card-content">
               <div class="team">
                 <img src="${stateObj.attributes.away_team_logo}" />
-                <div class="name">${stateObj.attributes.away_team_name}</div>
+                <div class="name">${stateObj.attributes.away_team_city}<br>${stateObj.attributes.away_team_name}</div>
                 <div class="record">${stateObj.attributes.away_team_record}</div>
               </div>
               <div class="score awayteamscr">${awayTeamScore}</div>
@@ -177,7 +177,7 @@ class NFLCard extends LitElement {
               <div class="score hometeamscr">${homeTeamScore}</div>
               <div class="team">
                 <img src="${stateObj.attributes.home_team_logo}" />
-                <div class="name">${stateObj.attributes.home_team_name}</div>
+                <div class="name">${stateObj.attributes.home_team_city}<br>${stateObj.attributes.home_team_name}</div>
                 <div class="record">${stateObj.attributes.home_team_record}</div>
               </div>
             </div>
@@ -291,7 +291,7 @@ class NFLCard extends LitElement {
             <div class="card-content">
               <div class="team">
                 <img src="${stateObj.attributes.away_team_logo}" />
-                <div class="name">${stateObj.attributes.away_team_name}</div>
+                <div class="name">${stateObj.attributes.away_team_city}<br>${stateObj.attributes.away_team_name}</div>
                 <div class="record">${stateObj.attributes.away_team_record}</div>
                 <div class="timeouts">
                   <div class="away-team-to"></div>
@@ -306,7 +306,7 @@ class NFLCard extends LitElement {
               <div class="hometeamposs">&bull;</div>
               <div class="team">
                 <img src="${stateObj.attributes.home_team_logo}" />
-                <div class="name">${stateObj.attributes.home_team_name}</div>
+                <div class="name">${stateObj.attributes.home_team_city}<br>${stateObj.attributes.home_team_name}</div>
                 <div class="record">${stateObj.attributes.home_team_record}</div>
                 <div class="timeouts">
                   <div class="home-team-to"></div>
@@ -407,7 +407,7 @@ class NFLCard extends LitElement {
               <div class="card-content">
                 <div class="team">
                   <img src="${stateObj.attributes.away_team_logo}" />
-                  <div class="name">${stateObj.attributes.away_team_name}</div>
+                  <div class="name">${stateObj.attributes.away_team_city}<br>${stateObj.attributes.away_team_name}</div>
                   <div class="record">${stateObj.attributes.away_team_record}</div>
                 </div>
                 <div class="gamewrapper">
@@ -417,7 +417,7 @@ class NFLCard extends LitElement {
                 </div>
                 <div class="team">
                   <img src="${stateObj.attributes.home_team_logo}" />
-                  <div class="name">${stateObj.attributes.home_team_name}</div>
+                  <div class="name">${stateObj.attributes.home_team_city}<br>${stateObj.attributes.home_team_name}</div>
                   <div class="record">${stateObj.attributes.home_team_record}</div>
                 </div>
               </div>
@@ -461,7 +461,7 @@ class NFLCard extends LitElement {
             <div class="card-content">
               <div class="team">
                 <img src="${stateObj.attributes.home_team_logo}" />
-                <div class="name">${stateObj.attributes.home_team_name}</div>
+                <div class="name">${stateObj.attributes.home_team_city}<br>${stateObj.attributes.home_team_name}</div>
               </div>
               <div class="bye">BYE</div>
             </div>
