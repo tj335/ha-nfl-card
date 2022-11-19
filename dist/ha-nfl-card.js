@@ -160,6 +160,7 @@ class NFLCard extends LitElement {
           table.ls { width: 100%; text-align: center; border: 0.5px solid #999; border-collapse: collapse; }
           th, td { border: 0.5px solid #999; text-align: center; }
           th.teamls, td.teamls { border: 0.5px solid #999; text-align: left; }
+          .leader-heading { font-size: 1.2em; text-align: center; margin-top: -21px; }
         </style>
         <ha-card>
           <div class="card">
@@ -190,7 +191,7 @@ class NFLCard extends LitElement {
             </div>
             <div class="sub3">
               <div class="location">${stateObj.attributes.venue_city}, ${stateObj.attributes.venue_state}</div>
-              <div class="attendance">${stateObj.attributes.attendance}</div>
+              <div class="attendance">Attendance: ${stateObj.attributes.attendance}</div>
             </div>
             <div class="line"></div>
             <div class="probability-text">
@@ -228,7 +229,10 @@ class NFLCard extends LitElement {
 
             <div class="line"></div>
             <div class="headlines">${stateObj.attributes.headlines}</div>
-
+            <div class="leader-heading">Leaders</div>
+            <div class="leader-info">Passing: ${stateObj.attributes.post_game_passing_leader_name} - ${stateObj.attributes.post_game_passing_leader_stats}</div>
+            <div class="leader-info">Rushing: ${stateObj.attributes.post_game_rushing_leader_name} - ${stateObj.attributes.post_game_rushing_leader_stats}</div>
+            <div class="leader-info">Receiving: ${stateObj.attributes.post_game_receiving_leader_name} - ${stateObj.attributes.post_game_receiving_leader_stats}</div>
           </div>
         </ha-card>
       `;
