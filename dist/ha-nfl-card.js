@@ -261,8 +261,9 @@ class NFLCard extends LitElement {
             .away-team-to { height: 6px; border-radius: ${toRadius}px; border: ${clrOut}px solid ${outColor}; width: 20%; background-color: ${awayTeamColor}; display: inline-block; margin: 0 auto; position: relative; opacity: 0.2; }
             .home-team-to { height: 6px; border-radius: ${toRadius}px; border: ${clrOut}px solid ${outColor}; width: 20%; background-color: ${homeTeamColor}; display: inline-block; margin: 0 auto; position: relative; opacity: 0.2; }
             .status { text-align:center; font-size:1.6em; font-weight: 700; }
+            .week-number { font-size: 1.1em; text-align: center; }
             .sub1 { font-weight: 700; font-size: 1.2em; margin: 6px 0 2px; }
-            .sub1, .sub2, .sub3 { display: flex; justify-content: space-between; align-items: center; margin: 2px 0; }
+            .sub1, .sub2, .sub3, .sub4 { display: flex; justify-content: space-between; align-items: center; margin: 2px 0; }
             .last-play { font-size: 1.2em; width: 100%; white-space: nowrap; overflow: hidden; box-sizing: border-box; }
             .last-play p { display: inline-block; padding-left: 100%; margin: 2px 0 12px; animation : slide 18s linear infinite; }
             @keyframes slide { 0%   { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
@@ -299,6 +300,7 @@ class NFLCard extends LitElement {
                   <div class="away-team-to"></div>
                 </div>
               </div>
+              <div class="week-number">Week ${stateObj.attributes.week_number}</div>
               <div class="awayteamposs">&bull;</div>
               <div class="score">${stateObj.attributes.away_team_score}</div>
               <div class="divider">-</div>
@@ -325,6 +327,11 @@ class NFLCard extends LitElement {
               <div class="location">${stateObj.attributes.venue_city}, ${stateObj.attributes.venue_state}</div>
               <div class="network">${stateObj.attributes.tv_network}</div>
             </div>
+            <div class="sub4">
+              <div class="capacity">Capacity: ${stateObj.attributes.venue_capacity}</div>
+              <div class="weather">${weather}</div>
+            </div>
+
             <div class="line"></div>
             <div class="last-play">
               <p>${stateObj.attributes.last_play}</p>
