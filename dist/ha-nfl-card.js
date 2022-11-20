@@ -391,6 +391,8 @@ class NFLCard extends LitElement {
             .gameday { font-size: 1.4em; margin-bottom: 4px; }
             .gametime { font-size: 1.1em; }
             .week-number { font-size: 1.1em; }
+            .leader-info { font-size: 0.9em; }
+            .leader-category { font-size: 0.9em; }
             .sub1 { font-weight: 500; font-size: 1.2em; margin: 6px 0 2px; }
             .sub1, .sub2, .sub3, .sub4 { display: flex; justify-content: space-between; align-items: center; margin: 2px 0; }
             .last-play { font-size: 1.2em; width: 100%; white-space: nowrap; overflow: hidden; box-sizing: border-box; }
@@ -434,7 +436,7 @@ class NFLCard extends LitElement {
                   <div class="leader-info">${stateObj.attributes.home_team_passing_leader_name}<br>${stateObj.attributes.home_team_passing_leader_stats}</div>
                 </div>
               </div>
-
+              <br>
               <div class="card-content">
                 <div class="team">
                   <div class="leader-info">${stateObj.attributes.away_team_rushing_leader_name}<br>${stateObj.attributes.away_team_rushing_leader_stats}</div>
@@ -446,7 +448,7 @@ class NFLCard extends LitElement {
                   <div class="leader-info">${stateObj.attributes.home_team_rushing_leader_name}<br>${stateObj.attributes.home_team_rushing_leader_stats}</div>
                 </div>
               </div>
-
+              <br>
               <div class="card-content">
                 <div class="team">
                   <div class="leader-info">${stateObj.attributes.away_team_receiving_leader_name}<br>${stateObj.attributes.away_team_receiving_leader_stats}</div>
