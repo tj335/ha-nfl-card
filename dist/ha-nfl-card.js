@@ -422,20 +422,39 @@ class NFLCard extends LitElement {
                 </div>
               </div>
 
+              <div class="line"></div>
               <div class="card-content">
                 <div class="team">
                   <div class="leader-info">${stateObj.attributes.away_team_passing_leader_name}<br>${stateObj.attributes.away_team_passing_leader_stats}</div>
-                  <div class="leader-info">${stateObj.attributes.away_team_rushing_leader_name}<br>${stateObj.attributes.away_team_rushing_leader_stats}</div>
-                  <div class="leader-info">${stateObj.attributes.away_team_receiving_leader_name}<br>${stateObj.attributes.away_team_receiving_leader_stats}</div>
                 </div>
                 <div class="gamewrapper">
                   <div class="leader-category">Passing</div>
-                  <div class="leader-category">Rushing</div>
-                  <div class="leader-category">Receiving</div>
                 </div>
                 <div class="team">
                   <div class="leader-info">${stateObj.attributes.home_team_passing_leader_name}<br>${stateObj.attributes.home_team_passing_leader_stats}</div>
+                </div>
+              </div>
+
+              <div class="card-content">
+                <div class="team">
+                  <div class="leader-info">${stateObj.attributes.away_team_rushing_leader_name}<br>${stateObj.attributes.away_team_rushing_leader_stats}</div>
+                </div>
+                <div class="gamewrapper">
+                  <div class="leader-category">Rushing</div>
+                </div>
+                <div class="team">
                   <div class="leader-info">${stateObj.attributes.home_team_rushing_leader_name}<br>${stateObj.attributes.home_team_rushing_leader_stats}</div>
+                </div>
+              </div>
+
+              <div class="card-content">
+                <div class="team">
+                  <div class="leader-info">${stateObj.attributes.away_team_receiving_leader_name}<br>${stateObj.attributes.away_team_receiving_leader_stats}</div>
+                </div>
+                <div class="gamewrapper">
+                  <div class="leader-category">Receiving</div>
+                </div>
+                <div class="team">
                   <div class="leader-info">${stateObj.attributes.home_team_receiving_leader_name}<br>${stateObj.attributes.home_team_receiving_leader_stats}</div>
                 </div>
               </div>
