@@ -278,6 +278,8 @@ class NFLCard extends LitElement {
             .sub1, .sub2, .sub3, .sub4 { display: flex; justify-content: space-between; align-items: center; margin: 2px 0; }
             .last-play { font-size: 1.2em; width: 100%; white-space: nowrap; overflow: hidden; box-sizing: border-box; }
             .last-play p { display: inline-block; padding-left: 100%; margin: 2px 0 12px; animation : slide 18s linear infinite; }
+            .drive-summary { font-size: 1.2em; width: 100%; white-space: nowrap; overflow: hidden; box-sizing: border-box; }
+            .drive-summary p { display: inline-block; padding-left: 100%; margin: 2px 0 12px; animation : slide 18s linear infinite; }
             @keyframes slide { 0%   { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
             .clock { text-align: center; font-size: 1.4em; }
             .down-distance { text-align: right; }
@@ -347,6 +349,9 @@ class NFLCard extends LitElement {
             <div class="line"></div>
             <div class="last-play">
               <p>${stateObj.attributes.last_play}</p>
+            </div>
+            <div class="drive-summary">
+              <p>${stateObj.attributes.current_drive_summary}</p>
             </div>
             <div class="probability-text">Win Probability</div>
             <div class="probability-wrapper">
