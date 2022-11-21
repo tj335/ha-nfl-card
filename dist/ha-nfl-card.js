@@ -32,6 +32,8 @@ class NFLCard extends LitElement {
     //var hScr;
     var homeTeamScoreOpacity;
     var weather;
+    var capacity;
+    var attendance;
 
     const stateObj = this.hass.states[this._config.entity];
     const outline = this._config.outline;
@@ -79,6 +81,16 @@ class NFLCard extends LitElement {
       } else {
         weather = 'Weather Unavailable';
       }
+    }
+
+    if (stateObj.attributes.venue_capacity) {
+      var capacityForm = new Number (stateObj.attributes.venue_capacity);
+      capacity = capacityForm.toLocaleString();
+    }
+
+    if (stateObj.attributes.attendance) {
+      var attendanceForm = new Number (stateObj.attributes.attendance);
+      attendance = attendanceForm.toLocaleString();
     }
 
     
@@ -187,11 +199,11 @@ class NFLCard extends LitElement {
             <div class="line"></div>
             <div class="sub2">
               <div class="venue">${stateObj.attributes.venue_name}</div>
-              <div class="capacity">Capacity: ${stateObj.attributes.venue_capacity}</div>
+              <div class="capacity">Capacity: ${capacity}</div>
             </div>
             <div class="sub3">
               <div class="location">${stateObj.attributes.venue_city}, ${stateObj.attributes.venue_state}</div>
-              <div class="attendance">Attendance: ${stateObj.attributes.attendance}</div>
+              <div class="attendance">Attendance: ${attendance}</div>
             </div>
             <div class="line"></div>
             <div class="probability-text">
@@ -230,9 +242,9 @@ class NFLCard extends LitElement {
             <div class="line"></div>
             <div class="headlines">${stateObj.attributes.headlines}</div>
             <div class="leader-heading">Leaders</div>
-            <div class="leader-info">Passing: ${stateObj.attributes.post_game_passing_leader_name} - ${stateObj.attributes.post_game_passing_leader_stats}</div>
-            <div class="leader-info">Rushing: ${stateObj.attributes.post_game_rushing_leader_name} - ${stateObj.attributes.post_game_rushing_leader_stats}</div>
-            <div class="leader-info">Receiving: ${stateObj.attributes.post_game_receiving_leader_name} - ${stateObj.attributes.post_game_receiving_leader_stats}</div>
+            <div class="leader-info">Passing - ${stateObj.attributes.post_game_passing_leader_name}: ${stateObj.attributes.post_game_passing_leader_stats}</div>
+            <div class="leader-info">Rushing - ${stateObj.attributes.post_game_rushing_leader_name}: ${stateObj.attributes.post_game_rushing_leader_stats}</div>
+            <div class="leader-info">Receiving - ${stateObj.attributes.post_game_receiving_leader_name}: ${stateObj.attributes.post_game_receiving_leader_stats}</div>
           </div>
         </ha-card>
       `;
@@ -328,7 +340,7 @@ class NFLCard extends LitElement {
               <div class="network">${stateObj.attributes.tv_network}</div>
             </div>
             <div class="sub4">
-              <div class="capacity">Capacity: ${stateObj.attributes.venue_capacity}</div>
+              <div class="capacity">Capacity: ${capacity}</div>
               <div class="weather">${weather}</div>
             </div>
 
@@ -482,7 +494,7 @@ class NFLCard extends LitElement {
                 <div class="network">${stateObj.attributes.tv_network}</div>
               </div>
               <div class="sub4">
-                <div class="capacity">Capacity: ${stateObj.attributes.venue_capacity}</div>
+                <div class="capacity">Capacity: ${capacity}</div>
                 <div class="weather">${weather}</div>
               </div>
             </div>
