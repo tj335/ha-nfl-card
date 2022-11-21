@@ -34,6 +34,7 @@ class NFLCard extends LitElement {
     var weather;
     var capacity;
     var attendance;
+    var redZoneOpacity;
 
     const stateObj = this.hass.states[this._config.entity];
     const outline = this._config.outline;
@@ -113,6 +114,13 @@ class NFLCard extends LitElement {
     if (stateObj.attributes.possession == stateObj.attributes.home_team_id) {
       var homeTeamPoss = 1;
     }
+
+    if (stateObj.attributes.in_red_zone == 'true') {
+      redZoneOpacity = 0.7;
+    } else {
+      redZoneOpacity = 0;
+    }
+
     if (Boolean(stateObj.state == 'POST') && Number(awayTeamScore) > Number(homeTeamScore)) {
         homeTeamScoreOpacity = 0.6;
         awayTeamScoreOpacity = 1;
@@ -281,6 +289,8 @@ class NFLCard extends LitElement {
             .drive-summary { font-size: 1.2em; width: 100%; white-space: nowrap; overflow: hidden; box-sizing: border-box; }
             .drive-summary p { display: inline-block; padding-left: 100%; margin: 2px 0 12px; animation : slide 18s linear infinite; }
             @keyframes slide { 0%   { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+            .red-zone { font-size: 1.2em; width: 100%; transform: translate(-50%, -50%); animation: animate 1.5s linear infinite; }
+            @keyframes animate { 0% { opacity: 0; } 50% { opacity: ${redZoneOpacity}; } 100% { opacity: 0; }
             .clock { text-align: center; font-size: 1.4em; }
             .down-distance { text-align: right; }
             .play-clock { font-size: 1.4em; text-align: center; margin-top: -24px; }
@@ -353,6 +363,7 @@ class NFLCard extends LitElement {
             <div class="drive-summary">
               <p>${stateObj.attributes.current_drive_summary}</p>
             </div>
+            <div class="red-zone">In Red Zone</div>
             <div class="probability-text">Win Probability</div>
             <div class="probability-wrapper">
               <div class="away-team-percent">${awayTeamProb}%</div>
