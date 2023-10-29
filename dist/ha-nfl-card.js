@@ -3,8 +3,6 @@ import { LitElement } from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core
 
 class NFLCard extends LitElement {
 
-class NFLCard extends LitElement {
-
   static get properties() {
     return {
       hass: {},
